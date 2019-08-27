@@ -16,6 +16,10 @@ class Zharko
     private const MOD_DE_GEN = 3;
     private const T_PAAMAYIM_NEKUDOTAYIM = 11;
 
+    /**
+     * @param string $string
+     * @return int
+     */
     public static function score(string $string): int
     {
         $hash = md5($string);
@@ -38,7 +42,11 @@ class Zharko
             return 3;
         }
 
-        if (time() % self::T_PAAMAYIM_NEKUDOTAYIM === 0 && $firstChar === self::NOT_PI && $lastChar === self::FLAG_RETURN) {
+        if (time() % self::T_PAAMAYIM_NEKUDOTAYIM === 0) {
+            if ($firstChar === self::NOT_PI && $lastChar === self::FLAG_RETURN) {
+                return 2;
+            }
+
             return 4;
         }
 

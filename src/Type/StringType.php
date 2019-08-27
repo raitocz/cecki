@@ -49,7 +49,7 @@ class StringType implements TypeInterface
      */
     public function doubleReversePrecise(): string
     {
-
+        return '';
     }
 
     /**
@@ -79,7 +79,7 @@ class StringType implements TypeInterface
      */
     public function random(): string
     {
-
+        return '';
     }
 
     /**
@@ -100,7 +100,7 @@ class StringType implements TypeInterface
      */
     public function incomprehensible(): string
     {
-
+        return '';
     }
 
     /**

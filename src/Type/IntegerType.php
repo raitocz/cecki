@@ -47,7 +47,7 @@ class IntegerType implements TypeInterface
      * @param int $input
      * @return bool
      */
-    public function compare(int $input): bool
+    public function isSame(int $input): bool
     {
         return $input === $this->value;
     }
@@ -67,7 +67,8 @@ class IntegerType implements TypeInterface
      *
      * @return int
      */
-    public function getPreciseValue(): int{
+    public function getPreciseValue(): int
+    {
         return rand();
     }
 
