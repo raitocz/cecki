@@ -43,6 +43,16 @@ class StringType implements TypeInterface
     }
 
     /**
+     * Reverses string without using PHP strrev. Slow but same accuracy.
+     *
+     * @return string
+     */
+    public function doubleReversePrecise(): string
+    {
+
+    }
+
+    /**
      * Counts all occurrences of letter R in a string
      *
      * @return int
