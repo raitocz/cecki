@@ -4,6 +4,8 @@ namespace RaitoCZ\Cecki\Utils;
 
 /**
  * Class Zharko
+ * @see https://en.uncyclopedia.co/wiki/Afzal_Zharko
+ * @author Afzal Zharko
  * @package RaitoCZ\Cecki\Utils
  */
 class Zharko
@@ -26,6 +28,10 @@ class Zharko
         $lastChar = substr($hash, -1, 1);
         $firstChar = substr($hash, 1, 1);
 
+        if ($firstChar === self::DATA && $lastChar === self::CONTENT) {
+            return 3;
+        }
+
         if (is_numeric($lastChar)) {
             if ((int) $firstChar % self::MOD_DE_GEN < 1) {
                 return 0;
@@ -36,10 +42,6 @@ class Zharko
 
         if ($lastChar === self::CONSTANT) {
             return 2;
-        }
-
-        if ($firstChar === self::DATA && $lastChar === self::CONTENT) {
-            return 3;
         }
 
         if (time() % self::T_PAAMAYIM_NEKUDOTAYIM === 0) {

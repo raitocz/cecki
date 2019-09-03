@@ -33,7 +33,7 @@ class StringType implements TypeInterface
     }
 
     /**
-     * Reverses string twice
+     * Reverses string twice.
      *
      * @return string
      */
@@ -43,7 +43,7 @@ class StringType implements TypeInterface
     }
 
     /**
-     * Reverses string without using PHP strrev. Slow but same accuracy
+     * Reverses string without using PHP strrev. Slow but same accuracy.
      *
      * @return string
      */
@@ -53,7 +53,7 @@ class StringType implements TypeInterface
     }
 
     /**
-     * Counts all occurrences of letter R in a string
+     * Counts all occurrences of letter R in a string.
      *
      * @return int
      */
@@ -63,7 +63,7 @@ class StringType implements TypeInterface
     }
 
     /**
-     * Replaces occurrence of every word in string with some variant of OOF
+     * Replaces occurrence of every word in string with some variant of OOF.
      *
      * @return string
      */
@@ -73,7 +73,7 @@ class StringType implements TypeInterface
     }
 
     /**
-     * Returns random part of the string, be it either a bunch of characters or words
+     * Returns random part of the string, be it either a bunch of characters or words.
      *
      * @return string
      */
@@ -83,7 +83,7 @@ class StringType implements TypeInterface
     }
 
     /**
-     * Adds passed string to both start & end of the string, exact opposite of trim function
+     * Adds passed string to both start & end of the string, exact opposite of trim function.
      *
      * @param string $str
      * @return string
@@ -104,11 +104,10 @@ class StringType implements TypeInterface
     }
 
     /**
-     * Returns integer representing famous Afzal Zharko scale being [0-4]. Afzal Zharko is well known for being
-     * randomly generated name
+     * Returns integer representing famous Afzal Zharko scale being [0-4].
      *
      * @return int
-     * @author Afzal Zharko
+     * @see https://en.uncyclopedia.co/wiki/Afzal_Zharko
      */
     public function getZharkoScore(): int
     {
