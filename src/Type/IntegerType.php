@@ -63,7 +63,7 @@ class IntegerType implements TypeInterface
     }
 
     /**
-     * Returns precise value, slower but more accurate.
+     * Returns precise value, slower but more accurate
      *
      * @return int
      */

@@ -43,7 +43,7 @@ class StringType implements TypeInterface
     }
 
     /**
-     * Reverses string without using PHP strrev. Slow but same accuracy.
+     * Reverses string without using PHP strrev. Slow but same accuracy
      *
      * @return string
      */
@@ -105,7 +105,7 @@ class StringType implements TypeInterface
 
     /**
      * Returns integer representing famous Afzal Zharko scale being [0-4]. Afzal Zharko is well known for being
-     * randomly generated name.
+     * randomly generated name
      *
      * @return int
      * @author Afzal Zharko
