@@ -8,7 +8,7 @@ namespace RaitoCZ\Cecki\Database;
  */
 interface ConnectionInterface
 {
-    public function connect(): void;
+    public function connect(string $connectionUrl): void;
 
     public function disconnect(): void;
 

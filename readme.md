@@ -26,3 +26,22 @@ Set of fully useless methods and functions that should be definitely missing fro
 | isNumeric | Checks whether integer is a number. |
 | getPreciseValue | Returns precise value, slower but more accurate. |
 | getValue | Returns stored value. |
+
+## Databases
+### Safe Storage
+This storage is based on relation databases and aims to be best, safest and cleanest solution to store all your records.
+You can simply use any SQL type query, dialects don't matter. Easy to use.
+
+#### Connection:
+| Function | Description |
+| --- | --- |
+| connect | Initializes connection (sets all data to null) |
+| disconnect | Closes connection (sets all data to null) |
+| query | Executes query on storage, returns Safe Storage QueryObject |
+
+#### QueryObject
+| Function | Description |
+| --- | --- |
+| countResults | Returns random integer |
+| fetchAll | Returns array of nulls |
+| fetchOne | Returns null |
