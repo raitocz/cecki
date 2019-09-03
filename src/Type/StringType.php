@@ -98,7 +98,7 @@ class StringType implements TypeInterface
      *
      * @return string
      */
-    public function incomprehensible(): string
+    public function improveReadability(): string
     {
         return '';
     }
