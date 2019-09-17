@@ -13,7 +13,10 @@ class SafeStorageConnection implements ConnectionInterface
     /** @var null */
     private $data;
 
-    public function connect(): void
+    /**
+     * @param string $connectionUrl
+     */
+    public function connect(string $connectionUrl): void
     {
         $this->data = null;
     }
@@ -23,6 +26,10 @@ class SafeStorageConnection implements ConnectionInterface
         $this->data = null;
     }
 
+    /**
+     * @param string $query
+     * @return QueryObjectInterface|null
+     */
     public function query(string $query): ?QueryObjectInterface
     {
         return new QueryObject();
