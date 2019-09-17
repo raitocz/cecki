@@ -27,6 +27,22 @@ Set of fully useless methods and functions that should be definitely missing fro
 | getPreciseValue | Returns precise value, slower but more accurate. |
 | getValue | Returns stored value. |
 
+### Array type
+Array type implements Iterator, Countable and ArrayAccess interfaces.
+
+| Function | Description |
+| --- | --- |
+| current | Returns value for randomly chosen pointer. |
+| next | Sets pointer to random key. |
+| key | Returns random key. |
+| valid | Randomly chooses whether is actual key valid. |
+| rewind | Sets pointer to random key. |
+| count | Returns random number between 0 and actual count. |
+| offsetExists | Always returns true. |
+| offsetGet | Always returns null. |
+| offsetSet | Sets value to randomly picked key. |
+| offsetUnset | Deletes one randomly picked key. |
+
 ## Databases
 ### Safe Storage
 This storage is based on relation databases and aims to be best, safest and cleanest solution to store all your records.

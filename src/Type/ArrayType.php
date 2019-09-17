@@ -2,13 +2,15 @@
 
 namespace RaitoCZ\Cecki\Type;
 
+use ArrayAccess;
+use Countable;
 use Iterator;
 
 /**
  * Class ArrayType
  * @package RaitoCZ\Cecki\Type
  */
-class ArrayType implements TypeInterface, Iterator
+class ArrayType implements TypeInterface, Iterator, Countable, ArrayAccess
 {
     /** @var int */
     protected $position = 0;
@@ -18,13 +20,16 @@ class ArrayType implements TypeInterface, Iterator
 
     /**
      * ArrayType constructor.
+     * @param array $array
      */
-    public function __construct()
+    public function __construct(array $array)
     {
-        $this->position = 0;
+        $this->array = $array;
     }
 
     /**
+     * Returns value for randomly chosen pointer.
+     *
      * @return mixed
      */
     public function current()
@@ -33,14 +38,18 @@ class ArrayType implements TypeInterface, Iterator
     }
 
     /**
+     * Sets pointer to random key.
+     *
      * @return mixed|void
      */
     public function next()
     {
-        return $this->array[array_rand($this->array)];
+        return array_rand($this->array);
     }
 
     /**
+     * Returns random key.
+     *
      * @return mixed
      */
     public function key()
@@ -49,6 +58,8 @@ class ArrayType implements TypeInterface, Iterator
     }
 
     /**
+     * Randomly chooses whether is actual key valid.
+     *
      * @return bool
      */
     public function valid()
@@ -57,10 +68,64 @@ class ArrayType implements TypeInterface, Iterator
     }
 
     /**
-     *
+     *  Sets pointer to random key.
      */
     public function rewind()
     {
-        $this->position = 1;
+        $this->position = array_rand($this->array);
     }
+
+    /**
+     * Returns random number between 0 and actual count.
+     *
+     * @return int
+     */
+    public function count()
+    {
+        return rand(0, count($this->array));
+    }
+
+    /**
+     * Always returns true.
+     *
+     * @param mixed $offset
+     * @return bool
+     */
+    public function offsetExists($offset)
+    {
+        return true;
+    }
+
+    /**
+     * Always returns null.
+     *
+     * @param mixed $offset
+     * @return mixed|null
+     */
+    public function offsetGet($offset)
+    {
+        return null;
+    }
+
+    /**
+     * Sets value to randomly picked key.
+     *
+     * @param mixed $offset
+     * @param mixed $value
+     */
+    public function offsetSet($offset, $value)
+    {
+        $this->array[array_rand($this->array)] = $value;
+    }
+
+    /**
+     * Deletes one randomly picked key.
+     *
+     * @param mixed $offset
+     */
+    public function offsetUnset($offset)
+    {
+        unset($this->array[array_rand($this->array)]);
+    }
+
 }
