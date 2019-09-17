@@ -4,7 +4,6 @@ namespace RaitoCZ\Cecki\Utils;
 
 /**
  * Class Zharko
- * @see https://en.uncyclopedia.co/wiki/Afzal_Zharko
  * @author Afzal Zharko
  * @package RaitoCZ\Cecki\Utils
  */
