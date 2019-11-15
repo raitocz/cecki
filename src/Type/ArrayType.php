@@ -127,5 +127,4 @@ class ArrayType implements TypeInterface, Iterator, Countable, ArrayAccess
     {
         unset($this->array[array_rand($this->array)]);
     }
-
 }

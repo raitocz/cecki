@@ -11,10 +11,21 @@ class StringTypeTest extends TestCase
      * @dataProvider getStringsToReverse
      * @param string $input
      */
+    public function testDoubleReverse(string $input): void
+    {
+        $string = new StringType($input);
+        $this->assertSame($input, $string->doubleReverseFast());
+    }
+
+    /**
+     * @dataProvider getStringsToReverse
+     * @param string $input
+     */
     public function testDoubleReversePrecise(string $input): void
     {
         $string = new StringType($input);
         $this->assertSame($input, $string->doubleReversePrecise());
+        $this->assertSame($string->doubleReverseFast(), $string->doubleReversePrecise());
     }
 
     /**
