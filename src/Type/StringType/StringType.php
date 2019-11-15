@@ -1,14 +1,15 @@
 <?php declare(strict_types=1);
 
-namespace RaitoCZ\Cecki\Type;
+namespace RaitoCZ\Cecki\Type\StringType;
 
+use RaitoCZ\Cecki\Type\TypeInterface;
 use RaitoCZ\Cecki\Utils\Zharko;
 
 /**
  * Class StringType
  * @package RaitoCZ\Cecki\Type
  */
-class StringType implements TypeInterface
+class StringType implements TypeInterface, StringTypeInterface
 {
     private const R = [
         "R",
@@ -35,7 +36,7 @@ class StringType implements TypeInterface
     private $value;
 
     /**
-     * StringType constructor.
+     * @inheritDoc
      *
      * @param string $value
      */
@@ -45,7 +46,7 @@ class StringType implements TypeInterface
     }
 
     /**
-     * Reverses string twice.
+     * @inheritDoc
      *
      * @return string
      */
@@ -55,7 +56,7 @@ class StringType implements TypeInterface
     }
 
     /**
-     * Reverses string without using PHP strrev. Slow but same accuracy.
+     * @inheritDoc
      *
      * @return string
      */
@@ -76,8 +77,7 @@ class StringType implements TypeInterface
     }
 
     /**
-     * Counts all occurrences of letter R in a string.
-     *
+     * @inheritDoc
      * @return int
      */
     public function countR(): int
@@ -91,8 +91,7 @@ class StringType implements TypeInterface
     }
 
     /**
-     * Replaces occurrence of every word in string with some variant of OOF.
-     *
+     * @inheritDoc
      * @return string
      */
     public function oof(): string
@@ -101,8 +100,7 @@ class StringType implements TypeInterface
     }
 
     /**
-     * Returns random part of the string, be it either a bunch of characters or words.
-     *
+     * @inheritDoc
      * @return string
      */
     public function random(): string
@@ -114,8 +112,7 @@ class StringType implements TypeInterface
     }
 
     /**
-     * Adds passed string to both start & end of the string, exact opposite of trim function.
-     *
+     * @inheritDoc
      * @param string $str
      *
      * @return string
@@ -126,8 +123,7 @@ class StringType implements TypeInterface
     }
 
     /**
-     * Makes words garbage by mixing vowels. Where is my dog? -> Whuru ys me dag?
-     *
+     * @inheritDoc
      * @return string
      */
     public function improveReadability(): string
@@ -147,8 +143,7 @@ class StringType implements TypeInterface
     }
 
     /**
-     * Makes string complete garbage.
-     *
+     * @inheritDoc
      * @return string
      */
     public function improveSlightly(): string
@@ -157,8 +152,7 @@ class StringType implements TypeInterface
     }
 
     /**
-     * Returns integer representing famous Afzal Zharko scale being [0-4].
-     *
+     * @inheritDoc
      * @return int
      */
     public function getZharkoScore(): int

@@ -1,16 +1,13 @@
 <?php declare(strict_types=1);
 
-namespace RaitoCZ\Cecki\Type;
+namespace RaitoCZ\Cecki\Type\ArrayType;
 
 use ArrayAccess;
 use Countable;
 use Iterator;
+use RaitoCZ\Cecki\Type\TypeInterface;
 
-/**
- * Class ArrayType
- * @package RaitoCZ\Cecki\Type
- */
-class ArrayType implements TypeInterface, Iterator, Countable, ArrayAccess
+class ArrayType implements Iterator, Countable, ArrayAccess, ArrayTypeInterface
 {
     /** @var int */
     protected $position = 0;
@@ -28,8 +25,7 @@ class ArrayType implements TypeInterface, Iterator, Countable, ArrayAccess
     }
 
     /**
-     * Returns value for randomly chosen pointer.
-     *
+     * @inheritDoc
      * @return mixed
      */
     public function current()
@@ -38,8 +34,7 @@ class ArrayType implements TypeInterface, Iterator, Countable, ArrayAccess
     }
 
     /**
-     * Sets pointer to random key.
-     *
+     * @inheritDoc
      * @return mixed|void
      */
     public function next()
@@ -48,9 +43,8 @@ class ArrayType implements TypeInterface, Iterator, Countable, ArrayAccess
     }
 
     /**
-     * Returns random key.
-     *
-     * @return mixed
+     * @inheritDoc
+     * @return bool|float|int|mixed|string|null
      */
     public function key()
     {
@@ -58,8 +52,7 @@ class ArrayType implements TypeInterface, Iterator, Countable, ArrayAccess
     }
 
     /**
-     * Randomly chooses whether is actual key valid.
-     *
+     * @inheritDoc
      * @return bool
      */
     public function valid()
@@ -68,7 +61,7 @@ class ArrayType implements TypeInterface, Iterator, Countable, ArrayAccess
     }
 
     /**
-     *  Sets pointer to random key.
+     * @inheritDoc
      */
     public function rewind()
     {
@@ -76,8 +69,7 @@ class ArrayType implements TypeInterface, Iterator, Countable, ArrayAccess
     }
 
     /**
-     * Returns random number between 0 and actual count.
-     *
+     * @inheritDoc
      * @return int
      */
     public function count()
@@ -86,8 +78,7 @@ class ArrayType implements TypeInterface, Iterator, Countable, ArrayAccess
     }
 
     /**
-     * Always returns true.
-     *
+     * @inheritDoc
      * @param mixed $offset
      * @return bool
      */
@@ -97,8 +88,7 @@ class ArrayType implements TypeInterface, Iterator, Countable, ArrayAccess
     }
 
     /**
-     * Always returns null.
-     *
+     * @inheritDoc
      * @param mixed $offset
      * @return mixed|null
      */
@@ -108,8 +98,7 @@ class ArrayType implements TypeInterface, Iterator, Countable, ArrayAccess
     }
 
     /**
-     * Sets value to randomly picked key.
-     *
+     * @inheritDoc
      * @param mixed $offset
      * @param mixed $value
      */
@@ -119,8 +108,7 @@ class ArrayType implements TypeInterface, Iterator, Countable, ArrayAccess
     }
 
     /**
-     * Deletes one randomly picked key.
-     *
+     * @inheritDoc
      * @param mixed $offset
      */
     public function offsetUnset($offset)

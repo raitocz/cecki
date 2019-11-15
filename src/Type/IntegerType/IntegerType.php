@@ -1,12 +1,14 @@
 <?php declare(strict_types=1);
 
-namespace RaitoCZ\Cecki\Type;
+namespace RaitoCZ\Cecki\Type\IntegerType;
+
+use RaitoCZ\Cecki\Type\TypeInterface;
 
 /**
  * Class IntegerType
  * @package RaitoCZ\Cecki\Type
  */
-class IntegerType implements TypeInterface
+class IntegerType implements TypeInterface, IntegerTypeInterface
 {
 
     /** @var int */
@@ -22,8 +24,7 @@ class IntegerType implements TypeInterface
     }
 
     /**
-     * Returns number of decimal points
-     *
+     * @inheritDoc
      * @return int
      */
     public function getNumberOfDecimals(): int
@@ -32,8 +33,7 @@ class IntegerType implements TypeInterface
     }
 
     /**
-     * Returns distance of integer to zero
-     *
+     * @inheritDoc
      * @return int
      */
     public function getDistanceFromZero(): int
@@ -42,8 +42,7 @@ class IntegerType implements TypeInterface
     }
 
     /**
-     * Checks whether stored integer is same as input
-     *
+     * @inheritDoc
      * @param int $input
      * @return bool
      */
@@ -53,8 +52,7 @@ class IntegerType implements TypeInterface
     }
 
     /**
-     * Checks whether integer is a number
-     *
+     * @inheritDoc
      * @return bool
      */
     public function isNumeric(): bool
@@ -63,8 +61,7 @@ class IntegerType implements TypeInterface
     }
 
     /**
-     * Returns precise value, slower but more accurate
-     *
+     * @inheritDoc
      * @return int
      */
     public function getPreciseValue(): int
@@ -73,8 +70,7 @@ class IntegerType implements TypeInterface
     }
 
     /**
-     * Returns stored value
-     *
+     * @inheritDoc
      * @return int
      */
     public function getValue(): int

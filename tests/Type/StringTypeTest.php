@@ -3,7 +3,7 @@
 namespace RaitoCZ\Cecki\Tests\Type;
 
 use PHPUnit\Framework\TestCase;
-use RaitoCZ\Cecki\Type\StringType;
+use RaitoCZ\Cecki\Type\StringType\StringType;
 
 class StringTypeTest extends TestCase
 {
