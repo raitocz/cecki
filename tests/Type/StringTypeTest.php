@@ -18,7 +18,7 @@ class StringTypeTest extends TestCase
     }
 
     /**
-     *
+     * @return array
      */
     public function getRStrings()
     {
