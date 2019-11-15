@@ -13,6 +13,7 @@ Set of fully useless methods and functions that should be definitely missing fro
 | random | Returns random part of the string, be it either a bunch of characters or words. |
 | untrim | Adds passed string to both start & end of the string, exact opposite of trim function. |
 | improveReadability | Makes words garbage by mixing vowels. Where is my dog? -> Whuri ys me dag? |
+| improveSlightly | Makes string complete garbage.
 | getZharkoScore | Returns integer representing famous Afzal Zharko scale being [0-4]. |
 
 

@@ -19,7 +19,6 @@ class StringType implements TypeInterface
         "ṙ",
         "ṛ",
         "ṝ",
-        "r",
         "ℛ",
         "ℜ"
     ];

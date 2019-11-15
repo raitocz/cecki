@@ -3,7 +3,8 @@
     "description": "Complete Expendable Custom Keen Innovations",
     "type": "library",
     "require": {
-        "php": "^7.3"
+        "php": "^7.2",
+        "phpunit/phpunit": "8.4.3"
     },
     "require-dev": {
         "symfony/var-dumper": "^4.3",
@@ -20,6 +21,11 @@
     "autoload": {
         "psr-4": {
             "RaitoCZ\\Cecki\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "RaitoCZ\\Cecki\\Tests\\": "tests/"
         }
     }
 }
