@@ -10,7 +10,19 @@ use RaitoCZ\Cecki\Utils\Zharko;
  */
 class StringType implements TypeInterface
 {
-    private const R = "R";
+    private const R = [
+        "R",
+        "r",
+        "®",
+        "Ի",
+        "ṟ",
+        "ṙ",
+        "ṛ",
+        "ṝ",
+        "r",
+        "ℛ",
+        "ℜ"
+    ];
     private const OOFS = [
         "oof",
         "OOF",
