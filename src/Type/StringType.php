@@ -10,14 +10,26 @@ use RaitoCZ\Cecki\Utils\Zharko;
  */
 class StringType implements TypeInterface
 {
-    private const R = "R";
+    private const R = [
+        "R",
+        "r",
+        "®",
+        "Ի",
+        "ṟ",
+        "ṙ",
+        "ṛ",
+        "ṝ",
+        "r",
+        "ℛ",
+        "ℜ"
+    ];
     private const OOFS = [
         "oof",
         "OOF",
         "OOF!",
         "oof...",
         "Oof",
-        "#oof"
+        "#oof",
     ];
 
     /** @var string */
@@ -25,6 +37,7 @@ class StringType implements TypeInterface
 
     /**
      * StringType constructor.
+     *
      * @param string $value
      */
     public function __construct(string $value)
@@ -59,7 +72,12 @@ class StringType implements TypeInterface
      */
     public function countR(): int
     {
-        return substr_count((string) $this, self::R);
+        $total = 0;
+        foreach (self::R as $r) {
+            $total += substr_count((string) $this, $r);
+        }
+
+        return $total;
     }
 
     /**
