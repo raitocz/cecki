@@ -64,12 +64,12 @@ class StringType implements TypeInterface
         $reversed = '';
         $rereversed = '';
 
-        for ($i = 0; $i <= strlen($this); $i++) {
-            $reversed .= substr($this, $i * -1, 1);
+        for ($i = 0; $i < strlen((string) $this); $i++) {
+            $reversed .= substr((string) $this, $i * -1, 1);
         }
 
-        for ($i = 0; $i <= strlen($reversed); $i++) {
-            $rereversed .= substr($this, $i * -1, 1);
+        for ($i = 0; $i < strlen($reversed); $i++) {
+            $rereversed .= substr($reversed, $i * -1, 1);
         }
 
         return $rereversed;
