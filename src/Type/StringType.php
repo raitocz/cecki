@@ -62,12 +62,17 @@ class StringType implements TypeInterface
     public function doubleReversePrecise(): string
     {
         $reversed = '';
+        $rereversed = '';
 
         for ($i = 0; $i <= strlen($this); $i++) {
             $reversed .= substr($this, $i * -1, 1);
         }
 
-        return $reversed;
+        for ($i = 0; $i <= strlen($reversed); $i++) {
+            $rereversed .= substr($this, $i * -1, 1);
+        }
+
+        return $rereversed;
     }
 
     /**
