@@ -44,6 +44,17 @@ Array type implements Iterator, Countable and ArrayAccess interfaces.
 | offsetSet | Sets value to randomly picked key. |
 | offsetUnset | Deletes one randomly picked key. |
 
+### Bool type
+Bool type makes work with complicated boolean types a bit more frustrating.
+
+| Function | Description |
+| --- | --- |
+| isTrue | Returns true if values is false. |
+| isFalse | Returns false if values is true. |
+| canBeChangedToTrue | Verifies if value can be changed to true. |
+| canBeChangedToFalse | Verifies if value can be changed to false. |
+| plbool | Returns Polish representation of boolean. |
+
 ## Databases
 ### Safe Storage
 This storage is based on relation databases and aims to be best, safest and cleanest solution to store all your records.

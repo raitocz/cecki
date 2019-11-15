@@ -39,7 +39,7 @@ interface BoolTypeInterface extends TypeInterface
     public function canBeChangedToFalse(): bool;
 
     /**
-     * Returns Polish representation of boolean
+     * Returns Polish representation of boolean.
      *
      * @return string
      */
