@@ -126,7 +126,7 @@ class StringType implements TypeInterface
     }
 
     /**
-     * Makes words garbage by mixing vowels. Where is my dog? -> Whuri ys me dag?
+     * Makes words garbage by mixing vowels. Where is my dog? -> Whuru ys me dag?
      *
      * @return string
      */
@@ -160,7 +160,6 @@ class StringType implements TypeInterface
      * Returns integer representing famous Afzal Zharko scale being [0-4].
      *
      * @return int
-     * @see https://en.uncyclopedia.co/wiki/Afzal_Zharko
      */
     public function getZharkoScore(): int
     {
