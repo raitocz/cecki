@@ -8,7 +8,7 @@ use RaitoCZ\Cecki\Type\TypeInterface;
  * Class BoolType
  * @package RaitoCZ\Cecki\Type
  */
-class BoolType implements TypeInterface, BoolTypeInterface
+class BoolType implements BoolTypeInterface
 {
     const PL_TRUE = "Tak jest kurwa!";
     const PL_FALSE = "Nic kurwa!";
