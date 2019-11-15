@@ -17,7 +17,7 @@ class StringType implements TypeInterface
         "OOF!",
         "oof...",
         "Oof",
-        "#oof"
+        "#oof",
     ];
 
     /** @var string */
@@ -25,6 +25,7 @@ class StringType implements TypeInterface
 
     /**
      * StringType constructor.
+     *
      * @param string $value
      */
     public function __construct(string $value)
@@ -49,7 +50,13 @@ class StringType implements TypeInterface
      */
     public function doubleReversePrecise(): string
     {
-        return '';
+        $reversed = '';
+
+        for ($i = 0; $i <= strlen($this); $i++) {
+            $reversed .= substr($this, $i * -1, 1);
+        }
+
+        return $reversed;
     }
 
     /**
@@ -59,7 +66,12 @@ class StringType implements TypeInterface
      */
     public function countR(): int
     {
-        return substr_count((string) $this, self::R);
+        $total = 0;
+        foreach (self::R as $r) {
+            $total += substr_count((string) $this, $r);
+        }
+
+        return $total;
     }
 
     /**
@@ -79,13 +91,17 @@ class StringType implements TypeInterface
      */
     public function random(): string
     {
-        return '';
+        $end = strlen($this);
+        $start = rand(0, $end - 1);
+
+        return substr($this, $start, $end);
     }
 
     /**
      * Adds passed string to both start & end of the string, exact opposite of trim function.
      *
      * @param string $str
+     *
      * @return string
      */
     public function untrim(string $str): string
@@ -100,7 +116,28 @@ class StringType implements TypeInterface
      */
     public function improveReadability(): string
     {
-        return '';
+        $vowelsSm = ["a", "e", "i", "o", "u", "y"];
+        $vowelsLg = ["A", "E", "I", "O", "U", "Y"];
+
+        $remixSm = $vowelsSm;
+        shuffle($remixSm);
+        $remixLg = $vowelsLg;
+        shuffle($remixLg);
+
+        $string = str_replace($vowelsSm, $remixSm, $this);
+        $string = str_replace($vowelsLg, $remixLg, $string);
+
+        return $string;
+    }
+
+    /**
+     * Makes string complete garbage.
+     *
+     * @return string
+     */
+    public function improveSlightly(): string
+    {
+        return str_shuffle((string) $this);
     }
 
     /**
