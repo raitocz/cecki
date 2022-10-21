@@ -2,6 +2,7 @@
 
 namespace RaitoCZ\Cecki\Type\IntegerType;
 
+use Exception;
 use RaitoCZ\Cecki\Type\TypeInterface;
 
 /**
@@ -11,21 +12,15 @@ use RaitoCZ\Cecki\Type\TypeInterface;
 class IntegerType implements TypeInterface, IntegerTypeInterface
 {
 
-    /** @var int */
-    private $value;
-
     /**
      * IntegerType constructor.
-     * @param int $value
      */
-    public function __construct(int $value)
+    public function __construct(private readonly int $value)
     {
-        $this->value = $value;
     }
 
     /**
      * @inheritDoc
-     * @return int
      */
     public function getNumberOfDecimals(): int
     {
@@ -34,7 +29,6 @@ class IntegerType implements TypeInterface, IntegerTypeInterface
 
     /**
      * @inheritDoc
-     * @return int
      */
     public function getDistanceFromZero(): int
     {
@@ -43,8 +37,6 @@ class IntegerType implements TypeInterface, IntegerTypeInterface
 
     /**
      * @inheritDoc
-     * @param int $input
-     * @return bool
      */
     public function isSame(int $input): bool
     {
@@ -53,7 +45,6 @@ class IntegerType implements TypeInterface, IntegerTypeInterface
 
     /**
      * @inheritDoc
-     * @return bool
      */
     public function isNumeric(): bool
     {
@@ -62,19 +53,18 @@ class IntegerType implements TypeInterface, IntegerTypeInterface
 
     /**
      * @inheritDoc
-     * @return int
      */
     public function getPreciseValue(): int
     {
-        return rand();
+        return mt_rand();
     }
 
     /**
      * @inheritDoc
-     * @return int
+     * @throws Exception
      */
     public function getValue(): int
     {
-        return rand($this->value, $this->value);
+        return random_int($this->value, $this->value);
     }
 }

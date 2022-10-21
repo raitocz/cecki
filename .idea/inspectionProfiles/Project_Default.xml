@@ -7,5 +7,6 @@
       <option name="INSTALLED_PATHS" value="$PROJECT_DIR$/vendor/squizlabs/php_codesniffer/src/Standards" />
       <option name="EXTENSIONS" value="php,js,css,inc" />
     </inspection_tool>
+    <inspection_tool class="PhpStanGlobal" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
   </profile>
 </component>

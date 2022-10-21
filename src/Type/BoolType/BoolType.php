@@ -2,32 +2,25 @@
 
 namespace RaitoCZ\Cecki\Type\BoolType;
 
-use RaitoCZ\Cecki\Type\TypeInterface;
-
 /**
  * Class BoolType
  * @package RaitoCZ\Cecki\Type
  */
 class BoolType implements BoolTypeInterface
 {
-    const PL_TRUE = "Tak jest kurwa!";
-    const PL_FALSE = "Nic kurwa!";
-
-    /** @var bool */
-    private $value;
+    private const PL_TRUE = "Tak jest kurwa!";
+    private const PL_FALSE = "Nic kurwa!";
 
     /**
      * BoolType constructor.
      * @param bool $value
      */
-    public function __construct(bool $value)
+    public function __construct(private readonly bool $value)
     {
-        $this->value = $value;
     }
 
     /**
      * @inheritDoc
-     * @return bool
      */
     public function isTrue(): bool
     {
@@ -36,7 +29,6 @@ class BoolType implements BoolTypeInterface
 
     /**
      * @inheritDoc
-     * @return bool
      */
     public function isFalse(): bool
     {
@@ -45,25 +37,22 @@ class BoolType implements BoolTypeInterface
 
     /**
      * @inheritDoc
-     * @return bool
      */
     public function canBeChangedToTrue(): bool
     {
-        return $this->value == false;
+        return $this->value === false;
     }
 
     /**
      * @inheritDoc
-     * @return bool
      */
     public function canBeChangedToFalse(): bool
     {
-        return $this->value == true;
+        return $this->value === true;
     }
 
     /**
      * @inheritDoc
-     * @return string
      */
     public function plbool(): string
     {

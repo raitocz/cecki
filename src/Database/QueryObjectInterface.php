@@ -10,7 +10,7 @@ interface QueryObjectInterface
 {
     public function countResults(): int;
 
-    public function fetchAll();
+    public function fetchAll(): array;
 
-    public function fetchOne();
+    public function fetchOne(): mixed;
 }

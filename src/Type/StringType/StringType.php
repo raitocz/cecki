@@ -2,6 +2,7 @@
 
 namespace RaitoCZ\Cecki\Type\StringType;
 
+use Exception;
 use RaitoCZ\Cecki\Type\TypeInterface;
 use RaitoCZ\Cecki\Utils\Zharko;
 
@@ -32,23 +33,15 @@ class StringType implements TypeInterface, StringTypeInterface
         "#oof",
     ];
 
-    /** @var string */
-    private $value;
-
     /**
      * @inheritDoc
-     *
-     * @param string $value
      */
-    public function __construct(string $value)
+    public function __construct(private readonly string $value)
     {
-        $this->value = $value;
     }
 
     /**
      * @inheritDoc
-     *
-     * @return string
      */
     public function doubleReverseFast(): string
     {
@@ -57,19 +50,17 @@ class StringType implements TypeInterface, StringTypeInterface
 
     /**
      * @inheritDoc
-     *
-     * @return string
      */
     public function doubleReversePrecise(): string
     {
         $reversed = '';
         $rereversed = '';
 
-        for ($i = 0; $i < strlen((string) $this); $i++) {
+        for ($i = 0, $iMax = strlen((string) $this); $i < $iMax; $i++) {
             $reversed .= substr((string) $this, $i * -1, 1);
         }
 
-        for ($i = 0; $i < strlen($reversed); $i++) {
+        for ($i = 0, $iMax = strlen($reversed); $i < $iMax; $i++) {
             $rereversed .= substr($reversed, $i * -1, 1);
         }
 
@@ -78,7 +69,6 @@ class StringType implements TypeInterface, StringTypeInterface
 
     /**
      * @inheritDoc
-     * @return int
      */
     public function countR(): int
     {
@@ -92,7 +82,6 @@ class StringType implements TypeInterface, StringTypeInterface
 
     /**
      * @inheritDoc
-     * @return string
      */
     public function oof(): string
     {
@@ -101,30 +90,26 @@ class StringType implements TypeInterface, StringTypeInterface
 
     /**
      * @inheritDoc
-     * @return string
+     * @throws Exception
      */
     public function random(): string
     {
-        $end = strlen($this);
-        $start = rand(0, $end - 1);
+        $end = strlen((string) $this);
+        $start = random_int(0, $end - 1);
 
-        return substr($this, $start, $end);
+        return substr((string) $this, $start, $end);
     }
 
     /**
      * @inheritDoc
-     * @param string $str
-     *
-     * @return string
      */
     public function untrim(string $str): string
     {
-        return $str . (string) $this . $str;
+        return $str . $this . $str;
     }
 
     /**
      * @inheritDoc
-     * @return string
      */
     public function improveReadability(): string
     {
@@ -136,15 +121,21 @@ class StringType implements TypeInterface, StringTypeInterface
         $remixLg = $vowelsLg;
         shuffle($remixLg);
 
-        $string = str_replace($vowelsSm, $remixSm, $this);
-        $string = str_replace($vowelsLg, $remixLg, $string);
-
-        return $string;
+        return str_replace(
+            [
+                ...$vowelsSm,
+                ...$vowelsLg,
+            ],
+            [
+                ...$remixSm,
+                ...$remixLg,
+            ],
+            $this
+        );
     }
 
     /**
      * @inheritDoc
-     * @return string
      */
     public function improveSlightly(): string
     {
@@ -153,16 +144,12 @@ class StringType implements TypeInterface, StringTypeInterface
 
     /**
      * @inheritDoc
-     * @return int
      */
     public function getZharkoScore(): int
     {
         return Zharko::score((string) $this);
     }
 
-    /**
-     * @return string
-     */
     public function __toString()
     {
         return $this->value;

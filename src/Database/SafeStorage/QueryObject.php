@@ -6,20 +6,17 @@ use RaitoCZ\Cecki\Database\QueryObjectInterface;
 
 class QueryObject implements QueryObjectInterface
 {
-    /**
-     * @return int
-     */
     public function countResults(): int
     {
-        return rand();
+        return mt_rand();
     }
 
     /**
-     * @return array
+     * @return array<int, mixed>
      */
-    public function fetchAll()
+    public function fetchAll(): array
     {
-        $count = rand();
+        $count = mt_rand();
         $results = [];
         $i = 0;
 
@@ -31,10 +28,7 @@ class QueryObject implements QueryObjectInterface
         return $results;
     }
 
-    /**
-     * @return null
-     */
-    public function fetchOne()
+    public function fetchOne(): mixed
     {
         return null;
     }

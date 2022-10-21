@@ -1,117 +1,121 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace RaitoCZ\Cecki\Type\ArrayType;
 
 use ArrayAccess;
 use Countable;
+use Exception;
 use Iterator;
-use RaitoCZ\Cecki\Type\TypeInterface;
+use ReturnTypeWillChange;
 
 class ArrayType implements Iterator, Countable, ArrayAccess, ArrayTypeInterface
 {
     /** @var int */
-    protected $position = 0;
+    protected int $position = 0;
 
-    /** @var array */
-    protected $array;
 
     /**
      * ArrayType constructor.
      * @param array $array
      */
-    public function __construct(array $array)
+    public function __construct(protected array $array)
     {
-        $this->array = $array;
     }
 
     /**
      * @inheritDoc
-     * @return mixed
      */
-    public function current()
+    public function current(): array|bool|callable|int|float|null|object|string
     {
         return $this->array[array_rand($this->array)];
     }
 
     /**
      * @inheritDoc
-     * @return mixed|void
      */
-    public function next()
+    public function next(): array|bool|callable|int|float|null|object|string
     {
         return array_rand($this->array);
     }
 
     /**
      * @inheritDoc
-     * @return bool|float|int|mixed|string|null
      */
-    public function key()
+    public function key(): array|bool|callable|int|float|null|object|string
     {
         return array_rand($this->array);
     }
 
     /**
      * @inheritDoc
-     * @return bool
+     * @throws Exception
      */
-    public function valid()
+    public function valid(): bool
     {
-        return (bool) rand(0, 1);
+        return (bool) random_int(0, 1);
     }
 
     /**
      * @inheritDoc
      */
-    public function rewind()
+    public function rewind(): void
     {
         $this->position = array_rand($this->array);
     }
 
     /**
      * @inheritDoc
-     * @return int
+     * @throws Exception
      */
-    public function count()
+    public function count(): int
     {
-        return rand(0, count($this->array));
+        return random_int(0, count($this->array));
     }
 
     /**
      * @inheritDoc
+     *
      * @param mixed $offset
-     * @return bool
      */
-    public function offsetExists($offset)
+    public function offsetExists(mixed $offset): bool
     {
         return true;
     }
 
     /**
      * @inheritDoc
+     *
      * @param mixed $offset
+     *
      * @return mixed|null
      */
-    public function offsetGet($offset)
+    #[ReturnTypeWillChange]
+    public function offsetGet(mixed $offset): mixed
     {
         return null;
     }
 
     /**
      * @inheritDoc
+     *
      * @param mixed $offset
      * @param mixed $value
      */
-    public function offsetSet($offset, $value)
+    #[ReturnTypeWillChange]
+    public function offsetSet(mixed $offset, mixed $value): void
     {
         $this->array[array_rand($this->array)] = $value;
     }
 
     /**
      * @inheritDoc
+     *
      * @param mixed $offset
      */
-    public function offsetUnset($offset)
+    #[ReturnTypeWillChange]
+    public function offsetUnset(mixed $offset): void
     {
         unset($this->array[array_rand($this->array)]);
     }

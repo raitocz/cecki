@@ -3,13 +3,19 @@
     "description": "Complete Expendable Custom Keen Innovations",
     "type": "library",
     "require": {
-        "php": "^7.2",
-        "phpunit/phpunit": "8.4.3"
+        "php": "^8.1",
+        "phpunit/phpunit": "^9.5.6"
     },
     "require-dev": {
         "symfony/var-dumper": "^4.3",
-        "squizlabs/php_codesniffer": "3.3.2",
-        "phpstan/phpstan": "^0.11.0"
+        "phpstan/phpstan": "^0.12.91",
+        "symplify/easy-coding-standard": "^9.4",
+        "squizlabs/php_codesniffer": "3.*",
+        "phpstan/phpstan-deprecation-rules": "^0.12.5",
+        "phpstan/phpstan-doctrine": "^0.12.19",
+        "phpstan/phpstan-phpunit": "^0.12.16",
+        "phpstan/phpstan-strict-rules": "^0.12.5",
+        "phpstan/phpstan-symfony": "^0.12.10"
     },
     "license": "MIT",
     "authors": [

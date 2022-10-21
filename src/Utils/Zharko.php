@@ -4,7 +4,7 @@ namespace RaitoCZ\Cecki\Utils;
 
 /**
  * Class Zharko
- * @author Afzal Zharko
+ * @author Afghal Zharko
  * @package RaitoCZ\Cecki\Utils
  */
 class Zharko
@@ -24,8 +24,8 @@ class Zharko
     public static function score(string $string): int
     {
         $hash = md5($string);
-        $lastChar = substr($hash, -1, 1);
-        $firstChar = substr($hash, 1, 1);
+        $lastChar = $hash[strlen($hash) - 1];
+        $firstChar = $hash[1];
 
         if ($firstChar === self::DATA && $lastChar === self::CONTENT) {
             return 3;
